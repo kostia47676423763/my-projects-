@@ -1,0 +1,61 @@
+def convert_size_to_mb(size: float, unit: str) -> float:
+    unit = unit.strip().lower()
+    if unit in ["gb", "g"]:
+        return size * 1024
+    elif unit in ["mb", "m"]:
+        return size
+    else:
+        raise ValueError("Use MB or GB")
+
+
+def convert_speed_to_mbps(speed: float, unit: str) -> float:
+    unit = unit.strip().lower()
+    if unit in ["mbps"]:
+        return speed
+    elif unit in ["mb/s", "mbs"]:
+        return speed * 8
+    else:
+        raise ValueError("Use Mbps or MB/s")
+
+
+def calculate_download_time(size_mb: float, speed_mbps: float) -> float:
+    if speed_mbps <= 0:
+        raise ValueError("Speed must be greater than 0")
+
+    speed_mb_per_sec = speed_mbps / 8
+    return size_mb / speed_mb_per_sec
+
+
+def format_time(seconds: float) -> str:
+    hours = int(seconds // 3600)
+    minutes = int((seconds % 3600) // 60)
+    secs = int(seconds % 60)
+
+    return f"{hours}h {minutes}m {secs}s"
+
+
+def main():
+    print("=== Download Time Calculator ===")
+
+    try:
+        size = float(input("File size (number): "))
+        size_unit = input("Unit (MB/GB): ")
+
+        speed = float(input("Internet speed (number): "))
+        speed_unit = input("Unit (Mbps/MB/s): ")
+
+        size_mb = convert_size_to_mb(size, size_unit)
+        speed_mbps = convert_speed_to_mbps(speed, speed_unit)
+
+        total_seconds = calculate_download_time(size_mb, speed_mbps)
+
+        print("\nDownload time:", format_time(total_seconds))
+
+    except ValueError as e:
+        print("Input error:", e)
+    except Exception:
+        print("Something went wrong. Check your input.")
+
+
+if __name__ == "__main__":
+    main()
