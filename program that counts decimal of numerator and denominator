@@ -1,0 +1,7 @@
+num = int(input("Numerator: "))
+
+den = int(input("Denominator: "))
+
+result = num/den
+
+print ("Decimal:", result)
