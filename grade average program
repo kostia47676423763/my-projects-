@@ -1,0 +1,20 @@
+print("=== Grade Total Calculator ===")
+
+english = float(input("Enter English grade: "))
+math = float(input("Enter Math grade: "))
+science = float(input("Enter Science grade: "))
+
+total = english + math + science
+average = total / 3
+
+print("\n=== Result ===")
+print("English:", english)
+print("Math:", math)
+print("Science:", science)
+print("Total grade:", total)
+print("Average grade:", average)
+
+if average >= 50:
+    print("Status: Passed")
+else:
+    print("Status: Failed")
