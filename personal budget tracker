@@ -1,0 +1,23 @@
+weekly_income = float(input("Enter your weekly income:"))
+food_expenses = float(input("Enter your food expenses:"))
+entertainment_expenses = float(input("Enter your entertainment expenses:"))
+other_expenses = float(input("Enter your other expenses:"))
+
+total_expenses = weekly_income + food_expenses + entertainment_expenses + other_expenses
+money_left = weekly_income  - total_expenses
+
+if weekly_income > 0:
+  saving_percentage = (money_left / weekly_income) * 100
+else:
+  saving_percentage = 0
+
+print("\n-----Budget Summary-----")
+print(f"Total expenses: {total_expenses:.2f}")
+print(f"Money left: {money_left:.2f}")
+print(f"Saving percentage: {saving_percentage:.2f}%")
+
+if money_left < 0:
+ print("\nWarning: you spent more than you earned")
+
+else :
+ print(f"\nGreat job! you saved {saving_percentage:.0f}% this week.")
