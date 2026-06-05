@@ -1,0 +1,47 @@
+print ("=== CYBERSECURITY QUIZ===")
+score = 0
+
+answer = input("What is a strong password? ")
+if answer.lower() == "one with numbers and symbols and uppercase letters":
+    score += 1
+    print("Correct")
+else:
+    print("Not quite")
+
+answer = input("How many bits are in a byte? ")
+if answer == "8":
+    score += 1
+    print("Correct")
+else:
+    print("Not quite")
+
+answer = input("What does CPU stand for? ")
+if answer.lower() == "central processing unit":
+    score += 1
+    print("Correct")
+else:
+    print("Not quite")
+
+answer = input("Is 123456 a strong password? ")
+if answer.lower() == "no":
+    score += 1
+    print("Correct")
+else:
+    print("Not quite")
+
+answer = input("What attack tries many passwords automatically? ")
+if answer.lower() == "brute force":
+    score += 1
+    print("Correct")
+else:
+    print("Not quite")
+
+print("Quiz finished")
+print("Your score:", score)
+
+if score == 5:
+    print("Cybersecurity master!")
+elif score == 3:
+    print("Good job!")
+else:
+  print ("Keep learning")
